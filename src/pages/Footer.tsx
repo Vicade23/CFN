@@ -23,9 +23,9 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
             An elite institution for the mind.
           </p>
           <div className="flex space-x-4">
-            <a href="#" className="text-brand-gold hover:text-white transition-colors"><Instagram size={18} /></a>
-            <a href="#" className="text-brand-gold hover:text-white transition-colors"><Youtube size={18} /></a>
-            <a href="#" className="text-brand-gold hover:text-white transition-colors"><Linkedin size={18} /></a>
+            <a href="/" className="text-brand-gold hover:text-white transition-colors"><Instagram size={18} /></a>
+            <a href="/" className="text-brand-gold hover:text-white transition-colors"><Youtube size={18} /></a>
+            <a href="/" className="text-brand-gold hover:text-white transition-colors"><Linkedin size={18} /></a>
           </div>
         </div>
 
