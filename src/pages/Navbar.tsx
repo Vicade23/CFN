@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+// import { motion } from 'motion/react';
 import { NAV_LINKS, Page } from '../model/types';
 
 interface NavbarProps {
