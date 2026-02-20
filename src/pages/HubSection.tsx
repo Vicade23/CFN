@@ -21,7 +21,7 @@ export const HubSection: React.FC = () => {
                 className="w-full h-full object-cover shadow-2xl"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute -bottom-10 -right-10 bg-brand-gold p-12 hidden lg:block shadow-xl">
+              <div className="absolute -bottom-10 -right-10 bg-brand-gold p-12 hidden bg-white lg:block shadow-xl">
                 <div className="flex items-center space-x-6">
                   <div className="text-brand-navy">
                     <p className="text-4xl font-serif font-bold">50K+</p>

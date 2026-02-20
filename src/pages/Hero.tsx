@@ -55,7 +55,7 @@ export const Hero: React.FC = () => {
               
               {/* Floating Element */}
               <motion.div 
-                className="absolute -bottom-10 -left-10 bg-brand-navy p-10 hidden lg:block"
+                className="absolute -bottom-10 -left-10 bg-brand-navy bg-white p-10 hidden lg:block"
                 initial={{ x: 50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 1 }}
