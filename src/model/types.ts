@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
 import Image1 from "../assets/f4cf9ec7-6904-4128-9dba-9c0b9f15ee42.jpg"
 import Image2 from "../assets/IMG_9446.jpg"
 import Image3 from "../assets/Screenshot 2026-02-22 231610.png"
