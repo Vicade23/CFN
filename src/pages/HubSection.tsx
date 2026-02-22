@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Monitor, MapPin, ArrowRight } from 'lucide-react';
+import Image1 from "../assets/IMG_5754.jpg"
 
 export const HubSection: React.FC = () => {
   return (
@@ -16,7 +17,8 @@ export const HubSection: React.FC = () => {
               viewport={{ once: true }}
             >
               <img 
-                src="https://picsum.photos/seed/hub/1200/800" 
+                // src="https://picsum.photos/seed/hub/1200/800" 
+                src={Image1} 
                 alt="CFN Hub" 
                 className="w-full h-full object-cover shadow-2xl"
                 referrerPolicy="no-referrer"

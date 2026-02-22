@@ -29,7 +29,7 @@ export const ProgramSection: React.FC = () => {
             >
               <div className="aspect-[4/5] overflow-hidden mb-8 relative rounded-[8px]">
                 <img 
-                  src={`https://picsum.photos/seed/${program.title}/800/1000`} 
+                  src={program.image} 
                   alt={program.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"

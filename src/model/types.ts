@@ -3,6 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import React from 'react';
+import Image1 from "../assets/IMG_9446.jpg"
+
 export type Page = 'home' | 'about' | 'programs' | 'hub' | 'media' | 'partner';
 
 export interface NavLink {
@@ -36,12 +39,13 @@ export interface Program {
   title: string;
   description: string;
   pillar: string;
+  image: string;
 }
 
 export const PROGRAMS: Program[] = [
-  { pillar: 'Pillar 1', title: 'Purpose Conferences', description: 'High-impact gatherings focused on mindset shifts and intentional living.' },
-  { pillar: 'Pillar 2', title: 'Campus Tours', description: 'Direct engagement with secondary and tertiary institutions to instill leadership early.' },
-  { pillar: 'Pillar 3', title: 'Training & Mentorship', description: 'Structured bootcamps and cohorts focused on professional alignment and social capital.' },
-  { pillar: 'Pillar 4', title: 'Publications & Media', description: 'Disseminating thought leadership through books, podcasts, and YouTube.' },
-  { pillar: 'Pillar 5', title: 'Strategic Partnerships', description: 'Collaborating with NGOs, the private sector, and global foundations.' },
+  { pillar: 'Pillar 1', image: Image1, title: 'Purpose Conferences', description: 'High-impact gatherings focused on mindset shifts and intentional living.' },
+  { pillar: 'Pillar 2', image: Image1, title: 'Campus Tours', description: 'Direct engagement with secondary and tertiary institutions to instill leadership early.' },
+  { pillar: 'Pillar 3', image: Image1, title: 'Training & Mentorship', description: 'Structured bootcamps and cohorts focused on professional alignment and social capital.' },
+  { pillar: 'Pillar 4', image: Image1, title: 'Publications & Media', description: 'Disseminating thought leadership through books, podcasts, and YouTube.' },
+  { pillar: 'Pillar 5', image: Image1, title: 'Strategic Partnerships', description: 'Collaborating with NGOs, the private sector, and global foundations.' },
 ];
