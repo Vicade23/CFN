@@ -17,6 +17,8 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
 
   // Scroll to top on page change
+
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentPage]);
