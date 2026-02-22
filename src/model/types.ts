@@ -4,7 +4,11 @@
  */
 
 import React from 'react';
-import Image1 from "../assets/IMG_9446.jpg"
+import Image1 from "../assets/f4cf9ec7-6904-4128-9dba-9c0b9f15ee42.jpg"
+import Image2 from "../assets/IMG_9446.jpg"
+import Image3 from "../assets/Screenshot 2026-02-22 231610.png"
+import Image4 from "../assets/Screenshot 2026-02-22 231904.png"
+import Image5 from "../assets/Screenshot 2026-02-22 232217.png"
 
 export type Page = 'home' | 'about' | 'programs' | 'hub' | 'media' | 'partner';
 
@@ -44,8 +48,8 @@ export interface Program {
 
 export const PROGRAMS: Program[] = [
   { pillar: 'Pillar 1', image: Image1, title: 'Purpose Conferences', description: 'High-impact gatherings focused on mindset shifts and intentional living.' },
-  { pillar: 'Pillar 2', image: Image1, title: 'Campus Tours', description: 'Direct engagement with secondary and tertiary institutions to instill leadership early.' },
-  { pillar: 'Pillar 3', image: Image1, title: 'Training & Mentorship', description: 'Structured bootcamps and cohorts focused on professional alignment and social capital.' },
-  { pillar: 'Pillar 4', image: Image1, title: 'Publications & Media', description: 'Disseminating thought leadership through books, podcasts, and YouTube.' },
-  { pillar: 'Pillar 5', image: Image1, title: 'Strategic Partnerships', description: 'Collaborating with NGOs, the private sector, and global foundations.' },
+  { pillar: 'Pillar 2', image: Image2, title: 'Campus Tours', description: 'Direct engagement with secondary and tertiary institutions to instill leadership early.' },
+  { pillar: 'Pillar 3', image: Image3, title: 'Training & Mentorship', description: 'Structured bootcamps and cohorts focused on professional alignment and social capital.' },
+  { pillar: 'Pillar 4', image: Image4, title: 'Publications & Media', description: 'Disseminating thought leadership through books, podcasts, and YouTube.' },
+  { pillar: 'Pillar 5', image: Image5, title: 'Strategic Partnerships', description: 'Collaborating with NGOs, the private sector, and global foundations.' },
 ];

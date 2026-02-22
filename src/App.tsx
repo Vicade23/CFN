@@ -11,6 +11,8 @@ import { MediaFeed } from './pages/MediaFeed';
 import { Page } from './model/types';
 import { Monitor, MapPin, ShieldCheck, Users, GraduationCap, Globe } from 'lucide-react';
 
+import Image1 from "./assets/Screenshot 2026-02-22 233142.png"
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
 
@@ -96,7 +98,7 @@ export default function App() {
                 </div>
                 <div className="w-full md:w-1/2">
                   <img 
-                    src="https://picsum.photos/seed/about/1200/1400" 
+                    src={Image1} 
                     alt="CFN Leadership" 
                     className="w-full h-full object-cover grayscale"
                     referrerPolicy="no-referrer"
