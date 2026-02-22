@@ -96,7 +96,7 @@ export const MediaFeed: React.FC = () => {
       </section>
 
       {/* Podcast Player Bar */}
-      <section className="bg-brand-navy py-8 px-6 sticky bottom-0 z-40 border-t border-white/10">
+      <section className="bg-brand-navy bg-white py-8 px-6 sticky bottom-0 z-40 border-t border-white/10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 bg-brand-gold shrink-0 flex items-center justify-center">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import HeroPic from "../assets/IMG_9527.jpg"
 
 export const Hero: React.FC = () => {
   return (
@@ -44,7 +45,8 @@ export const Hero: React.FC = () => {
             {/* Split Screen / Layered Layout */}
             <div className="relative w-full h-full">
               <img 
-                src="https://picsum.photos/seed/leader/1200/1600" 
+                // src="https://picsum.photos/seed/leader/1200/1600" 
+                src={HeroPic} 
                 alt="Young African Leader" 
                 className="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]"
                 referrerPolicy="no-referrer"
