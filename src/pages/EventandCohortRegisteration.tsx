@@ -168,6 +168,7 @@ const EventandCohortRegisteration = () => {
                           ? 'border-red-500 focus:ring-red-500'
                           : 'border-gray-300 focus:ring-brand-gold'
                       } focus:outline-none focus:ring-2`}
+                      
                     />
                     {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
                   </div>
