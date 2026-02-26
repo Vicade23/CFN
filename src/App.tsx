@@ -12,6 +12,7 @@ import { Page } from './model/types';
 import { Monitor, MapPin, ShieldCheck, Users, GraduationCap, Globe } from 'lucide-react';
 
 import Image1 from "./assets/Screenshot 2026-02-22 233142.png"
+import EventandCohortRegisteration from './pages/EventandCohortRegisteration';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -132,6 +133,84 @@ export default function App() {
                   ))}
                 </div>
               </section>
+            </div>
+          </motion.div>
+        );
+        
+      case 'eventandcohortregisteration':
+        return (
+          <motion.div
+            key="eventandcohortregisteration"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="pt-20"
+          >
+            <div className="max-w-7xl mx-auto px-6">
+
+              <EventandCohortRegisteration />
+
+
+              {/* <div className="flex flex-col md:flex-row gap-20 items-center mb-32">
+                <div className="w-full md:w-1/2">
+                  <span className="text-brand-gold uppercase tracking-[0.4em] text-[10px] font-display font-bold mb-6 block">
+                    Executive Overview
+                  </span>
+                  <h1 className="text-5xl md:text-7xl font-serif text-brand-navy mb-8 leading-tight">
+                    The <span className="italic">Conviction</span> Behind the Movement.
+                  </h1>
+                  <p className="text-lg text-brand-navy/70 leading-relaxed mb-8">
+                    Capacity for Nations (CFN) is a youth empowerment hub headquartered in Abuja, Nigeria. 
+                    Established as a strategic response to the widespread "japa" (emigration) trend, CFN operates 
+                    on the conviction that African youth can lead global transformation from within the continent.
+                  </p>
+                  <div className="grid grid-cols-2 gap-8 py-8 border-t border-brand-navy/10">
+                    <div>
+                      <p className="text-3xl font-serif text-brand-navy">Abuja</p>
+                      <p className="text-[10px] uppercase tracking-widest font-display font-bold text-brand-gold">Headquarters</p>
+                    </div>
+                    <div>
+                      <p className="text-3xl font-serif text-brand-navy">Pan-African</p>
+                      <p className="text-[10px] uppercase tracking-widest font-display font-bold text-brand-gold">Scope</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full md:w-1/2">
+                  <img 
+                    src={Image1} 
+                    alt="CFN Leadership" 
+                    className="w-full h-full object-cover grayscale"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              </div>
+              <ValueSection />
+              
+              <section className="py-32 border-t border-brand-navy/5">
+                <div className="text-center mb-20">
+                  <h2 className="text-4xl font-serif text-brand-navy mb-4">2025–2027 Strategic Roadmap</h2>
+                  <p className="text-brand-navy/50 uppercase tracking-widest text-xs font-display">Measurable outcomes for the next three years</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                  {[
+                    { icon: <Users />, label: 'Mass Outreach', value: '50,000', sub: 'Young Africans' },
+                    { icon: <GraduationCap />, label: 'Skill Development', value: '10,000', sub: 'Graduates' },
+                    { icon: <Globe />, label: 'Institutional Presence', value: '20', sub: 'Universities' }
+                  ].map((stat, i) => (
+                    <div key={i} className="text-center p-12 bg-white border border-brand-navy/5">
+                      <div className="w-12 h-12 bg-brand-navy/5 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-gold">
+                        {stat.icon}
+                      </div>
+                      <p className="text-4xl font-serif text-brand-navy mb-2">{stat.value}</p>
+                      <p className="text-[10px] uppercase tracking-widest font-display font-bold text-brand-gold mb-1">{stat.label}</p>
+                      <p className="text-xs text-brand-navy/40">{stat.sub}</p>
+                    </div>
+                  ))}
+                </div>
+              </section> */}
+
+
+
             </div>
           </motion.div>
         );

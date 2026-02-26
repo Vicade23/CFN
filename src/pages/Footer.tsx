@@ -38,6 +38,7 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
             <li><button onClick={() => onPageChange('programs')} className="hover:text-brand-gold transition-colors">Programs</button></li>
             <li><button onClick={() => onPageChange('hub')} className="hover:text-brand-gold transition-colors">The Hub</button></li>
             <li><button onClick={() => onPageChange('media')} className="hover:text-brand-gold transition-colors">Media</button></li>
+            <li><button onClick={() => onPageChange('eventandcohortregisteration')} className="hover:text-brand-gold transition-colors">Events & Cohorts</button></li>
           </ul>
         </div>
 

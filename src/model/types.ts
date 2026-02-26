@@ -9,7 +9,7 @@ import Image3 from "../assets/Screenshot 2026-02-22 231610.png"
 import Image4 from "../assets/Screenshot 2026-02-22 231904.png"
 import Image5 from "../assets/Screenshot 2026-02-22 232217.png"
 
-export type Page = 'home' | 'about' | 'programs' | 'hub' | 'media' | 'partner';
+export type Page = 'home' | 'about' | 'programs' | 'hub' | 'media' | 'partner' | 'eventandcohortregisteration';
 
 export interface NavLink {
   label: string;
@@ -22,6 +22,8 @@ export const NAV_LINKS: NavLink[] = [
   { label: 'The Hub', page: 'hub' },
   { label: 'Media', page: 'media' },
   { label: 'Partner', page: 'partner' },
+  { label: 'Registration', page: 'eventandcohortregisteration' },
+  // Event & Cohort 
 ];
 
 export interface Value {
