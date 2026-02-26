@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { motion } from 'motion/react';
 import Postal from '../assets/WhatsApp Image 2026-02-24 at 11.07.14 PM (1).jpeg';
+import Whatsapp from '../assets/pngtree-whatsapp-icon-png-image_6315990.png';
 
 interface RegistrationForm {
   fullName: string;
@@ -12,15 +14,24 @@ interface RegistrationForm {
 
 const EventandCohortRegisteration = () => {
   const [isRegistered, setIsRegistered] = useState(false);
-  const [formData, setFormData] = useState<RegistrationForm>({
-    fullName: '',
-    email: '',
-    phone: '',
-    eventCohort: '',
-    institution: '',
+  const [registeredData, setRegisteredData] = useState<RegistrationForm | null>(null);
+  
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+    watch,
+  } = useForm<RegistrationForm>({
+    mode: 'onBlur',
+    defaultValues: {
+      fullName: '',
+      email: '',
+      phone: '',
+      eventCohort: '',
+      institution: '',
+    },
   });
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const events = [
     'Purpose Conference 2026',
@@ -31,52 +42,11 @@ const EventandCohortRegisteration = () => {
     'Innovation Workshop',
   ];
 
-  const validateForm = () => {
-    const newErrors: Record<string, string> = {};
-
-    if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
-    if (!formData.email.trim()) newErrors.email = 'Email is required';
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
-    }
-    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
-    else if (!/^[\d\s\-\+\(\)]+$/.test(formData.phone) || formData.phone.replace(/\D/g, '').length < 10) {
-      newErrors.phone = 'Please enter a valid phone number';
-    }
-    if (!formData.eventCohort) newErrors.eventCohort = 'Please select an event or cohort';
-    if (!formData.institution.trim()) newErrors.institution = 'Institution/Organization is required';
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-    // Clear error for this field when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: '',
-      }));
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!validateForm()) return;
-
-    setIsSubmitting(true);
-
+  const onSubmit = async (data: RegistrationForm) => {
     // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsRegistered(true);
-    }, 1000);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setRegisteredData(data);
+    setIsRegistered(true);
   };
 
   const handleWhatsAppJoin = () => {
@@ -85,13 +55,8 @@ const EventandCohortRegisteration = () => {
 
   const handleNewRegistration = () => {
     setIsRegistered(false);
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      eventCohort: '',
-      institution: '',
-    });
+    setRegisteredData(null);
+    reset();
   };
 
   return (
@@ -109,10 +74,10 @@ const EventandCohortRegisteration = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-serif mb-4">
+            <h1 className="text-4xl md:text-5xl font-serif mb-4 text-center">
               Join Our <span className="text-brand-gold">Community</span>
             </h1>
-            <p className="text-lg text-brand-navy/70 max-w-2xl">
+            <p className="text-lg text-brand-navy/70 max-w-2xl mx-auto text-center">
               Register for exclusive events and cohorts designed to unlock your purpose and build meaningful connections with fellow leaders.
             </p>
           </motion.div>
@@ -134,7 +99,7 @@ const EventandCohortRegisteration = () => {
                 <h2 className="text-3xl font-serif text-brand-navy mb-2">Registration Form</h2>
                 <p className="text-brand-navy/60 mb-8">Fill in your details to get started</p>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   {/* Full Name */}
                   <div>
                     <label className="block text-sm font-medium text-brand-navy mb-2">
@@ -142,17 +107,15 @@ const EventandCohortRegisteration = () => {
                     </label>
                     <input
                       type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleInputChange}
                       placeholder="Enter your full name"
+                      {...register('fullName', { required: 'Full name is required' })}
                       className={`w-full px-4 py-3 rounded-lg border text-brand-navy placeholder-gray-400 bg-white transition-all ${
                         errors.fullName
                           ? 'border-red-500 focus:ring-red-500'
                           : 'border-gray-300 focus:ring-brand-gold'
                       } focus:outline-none focus:ring-2`}
                     />
-                    {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>}
+                    {errors.fullName && <p className="text-red-500 text-sm mt-1">{errors.fullName.message}</p>}
                   </div>
 
                   {/* Email */}
@@ -162,17 +125,21 @@ const EventandCohortRegisteration = () => {
                     </label>
                     <input
                       type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
                       placeholder="your.email@example.com"
+                      {...register('email', {
+                        required: 'Email is required',
+                        pattern: {
+                          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                          message: 'Please enter a valid email address',
+                        },
+                      })}
                       className={`w-full px-4 py-3 rounded-lg border text-brand-navy placeholder-gray-400 bg-white transition-all ${
                         errors.email
                           ? 'border-red-500 focus:ring-red-500'
                           : 'border-gray-300 focus:ring-brand-gold'
                       } focus:outline-none focus:ring-2`}
                     />
-                    {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                    {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
                   </div>
 
                   {/* Phone Number */}
@@ -182,17 +149,27 @@ const EventandCohortRegisteration = () => {
                     </label>
                     <input
                       type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
                       placeholder="+234 (0) 123 4567"
+                      {...register('phone', {
+                        required: 'Phone number is required',
+                        validate: (value) => {
+                          const digitsOnly = value.replace(/\D/g, '');
+                          if (digitsOnly.length < 10) {
+                            return 'Phone number must contain at least 10 digits';
+                          }
+                          if (!/^[\d\s\-\+\(\)]+$/.test(value)) {
+                            return 'Please enter a valid phone number';
+                          }
+                          return true;
+                        },
+                      })}
                       className={`w-full px-4 py-3 rounded-lg border text-brand-navy placeholder-gray-400 bg-white transition-all ${
                         errors.phone
                           ? 'border-red-500 focus:ring-red-500'
                           : 'border-gray-300 focus:ring-brand-gold'
                       } focus:outline-none focus:ring-2`}
                     />
-                    {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+                    {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
                   </div>
 
                   {/* Institution/Organization */}
@@ -202,17 +179,15 @@ const EventandCohortRegisteration = () => {
                     </label>
                     <input
                       type="text"
-                      name="institution"
-                      value={formData.institution}
-                      onChange={handleInputChange}
                       placeholder="Your school, company, or organization"
+                      {...register('institution', { required: 'Institution/Organization is required' })}
                       className={`w-full px-4 py-3 rounded-lg border text-brand-navy placeholder-gray-400 bg-white transition-all ${
                         errors.institution
                           ? 'border-red-500 focus:ring-red-500'
                           : 'border-gray-300 focus:ring-brand-gold'
                       } focus:outline-none focus:ring-2`}
                     />
-                    {errors.institution && <p className="text-red-500 text-sm mt-1">{errors.institution}</p>}
+                    {errors.institution && <p className="text-red-500 text-sm mt-1">{errors.institution.message}</p>}
                   </div>
 
                   {/* Event/Cohort Selection */}
@@ -221,9 +196,7 @@ const EventandCohortRegisteration = () => {
                       Select Event or Cohort *
                     </label>
                     <select
-                      name="eventCohort"
-                      value={formData.eventCohort}
-                      onChange={handleInputChange}
+                      {...register('eventCohort', { required: 'Please select an event or cohort' })}
                       className={`w-full px-4 py-3 rounded-lg border text-brand-navy bg-white transition-all ${
                         errors.eventCohort
                           ? 'border-red-500 focus:ring-red-500'
@@ -237,7 +210,7 @@ const EventandCohortRegisteration = () => {
                         </option>
                       ))}
                     </select>
-                    {errors.eventCohort && <p className="text-red-500 text-sm mt-1">{errors.eventCohort}</p>}
+                    {errors.eventCohort && <p className="text-red-500 text-sm mt-1">{errors.eventCohort.message}</p>}
                   </div>
 
                   {/* Submit Button */}
@@ -304,7 +277,9 @@ const EventandCohortRegisteration = () => {
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
                   <div className="flex items-center mb-3">
-                    <span className="text-2xl mr-2">💬</span>
+                    <span className="text-2xl mr-2">
+                        <img src={Whatsapp} alt="Whatsapp icon" className="w-8 h-8" />
+                    </span>
                     <h3 className="text-lg font-serif text-brand-navy">WhatsApp Community</h3>
                   </div>
                   <p className="text-brand-navy/70 text-sm">
@@ -337,7 +312,7 @@ const EventandCohortRegisteration = () => {
                 </h2>
 
                 <p className="text-xl text-brand-navy/70 mb-3">
-                  {formData.fullName}, your registration is complete.
+                  {registeredData?.fullName}, your registration is complete.
                 </p>
 
                 <p className="text-brand-navy/60 mb-10 max-w-md mx-auto leading-relaxed">
@@ -348,9 +323,9 @@ const EventandCohortRegisteration = () => {
                 <div className="bg-brand-navy/5 rounded-lg p-6 mb-10 text-left max-w-md mx-auto">
                   <h3 className="font-medium text-brand-navy mb-4">Registration Details</h3>
                   <div className="space-y-2 text-sm text-brand-navy/70">
-                    <p><span className="font-medium">Name:</span> {formData.fullName}</p>
-                    <p><span className="font-medium">Event/Cohort:</span> {formData.eventCohort}</p>
-                    <p><span className="font-medium">Email:</span> {formData.email}</p>
+                    <p><span className="font-medium">Name:</span> {registeredData?.fullName}</p>
+                    <p><span className="font-medium">Event/Cohort:</span> {registeredData?.eventCohort}</p>
+                    <p><span className="font-medium">Email:</span> {registeredData?.email}</p>
                   </div>
                 </div>
 
@@ -388,7 +363,7 @@ const EventandCohortRegisteration = () => {
                 <div className="bg-white rounded-lg p-6 shadow-md">
                   <span className="text-3xl mb-2 block">📧</span>
                   <h3 className="font-medium text-brand-navy mb-2">Email Confirmation</h3>
-                  <p className="text-sm text-brand-navy/60">A confirmation has been sent to {formData.email}</p>
+                  <p className="text-sm text-brand-navy/60">A confirmation has been sent to {registeredData?.email}</p>
                 </div>
 
                 <div className="bg-white rounded-lg p-6 shadow-md">
