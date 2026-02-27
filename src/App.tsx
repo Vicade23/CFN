@@ -15,6 +15,7 @@ import { Monitor, MapPin, ShieldCheck, Users, GraduationCap, Globe } from 'lucid
 import Image1 from "./assets/WhatsApp Image 2026-02-23 at 9.41.22 AM (1).jpeg"
 import EventandCohortRegisteration from './pages/EventandCohortRegisteration';
 import ScrollToTop from './pages/ScrollToTop';
+import ProgramPictures from './pages/ProgramPictures';
 
 
 const queryClient = new QueryClient();
@@ -166,6 +167,8 @@ function AppLayout() {
                 className="pt-20"
               >
                 <ProgramSection />
+                <ProgramPictures />
+                
                 <section className="py-32 bg-brand-alabaster">
                   <div className="max-w-7xl mx-auto px-6 text-center">
                     <h2 className="text-4xl font-serif text-brand-navy mb-8">Ready to Build Capacity?</h2>
