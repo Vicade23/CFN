@@ -21,7 +21,7 @@ const EventandCohortRegisteration = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-    watch,
+    // watch,
   } = useForm<RegistrationForm>({
     mode: 'onBlur',
     defaultValues: {
