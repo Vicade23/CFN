@@ -19,7 +19,7 @@ export interface NavLink {
 export const NAV_LINKS: NavLink[] = [
   { label: 'About', page: 'about' },
   { label: 'Programs', page: 'programs' },
-  { label: 'The Hub', page: 'hub' },
+  // { label: 'The Hub', page: 'hub' },
   { label: 'Media', page: 'media' },
   { label: 'Partner', page: 'partner' },
   { label: 'Registration', page: 'eventandcohortregisteration' },

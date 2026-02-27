@@ -1,12 +1,26 @@
 import React from 'react';
 import { Instagram, Youtube, Linkedin, Mail, MapPin } from 'lucide-react';
-import { Page } from '../model/types';
+import { useNavigate } from 'react-router-dom';
+import { NAV_LINKS } from '../model/types';
 
-interface FooterProps {
-  onPageChange: (page: Page) => void;
-}
+const PAGE_TO_PATH: Record<string, string> = {
+  'home': '/',
+  'about': '/about',
+  'programs': '/programs',
+  // 'hub': '/hub',
+  'media': '/media',
+  'partner': '/partner',
+  'eventandcohortregisteration': '/event'
+};
 
-export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
+export const Footer: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (page: string) => {
+    const path = PAGE_TO_PATH[page] || '/';
+    navigate(path);
+  };
+
   return (
     <footer className="bg-brand-navy text-brand-alabaster pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -33,13 +47,17 @@ export const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
         <div>
           <h4 className="font-serif text-lg mb-6 text-brand-gold italic">Navigation</h4>
           <ul className="space-y-4 text-xs uppercase tracking-widest font-display font-semibold">
-            <li><button onClick={() => onPageChange('home')} className="hover:text-brand-gold transition-colors">Home</button></li>
-            <li><button onClick={() => onPageChange('about')} className="hover:text-brand-gold transition-colors">About Us</button></li>
-            <li><button onClick={() => onPageChange('programs')} className="hover:text-brand-gold transition-colors">Programs</button></li>
-            <li><button onClick={() => onPageChange('hub')} className="hover:text-brand-gold transition-colors">The Hub</button></li>
-            <li><button onClick={() => onPageChange('media')} className="hover:text-brand-gold transition-colors">Media</button></li>
-            <li><button onClick={() => onPageChange('eventandcohortregisteration')} className="hover:text-brand-gold transition-colors">Events & Cohorts</button></li>
-          </ul>
+            {NAV_LINKS.map((link) => (
+              <li key={link.page}>
+                <button 
+                  onClick={() => handleNavigation(link.page)}
+                  className="hover:text-brand-gold transition-colors"
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))}
+          </ul> 
         </div>
 
         {/* Contact */}

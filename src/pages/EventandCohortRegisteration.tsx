@@ -89,11 +89,25 @@ const EventandCohortRegisteration = () => {
         <div className="max-w-5xl mx-auto">
           {!isRegistered ? (
             <motion.div
-              className="grid md:grid-cols-2 gap-12 items-start"
+              className="grid md:grid-cols-1 gap-12 items-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
+                
+                <motion.div
+                  className="overflow-hidden rounded-xl shadow-xl"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  <img 
+                    src={Postal} 
+                    alt="Event and Cohort" 
+                    className="w-full block md:hidden h-auto object-cover rounded-xl"
+                  />
+                </motion.div>
+
               {/* Form Section */}
               <div className="bg-white rounded-xl shadow-lg p-8 md:p-10">
                 <h2 className="text-3xl font-serif text-brand-navy mb-2">Registration Form</h2>
@@ -149,7 +163,7 @@ const EventandCohortRegisteration = () => {
                     </label>
                     <input
                       type="tel"
-                      placeholder="+234 (0) 123 4567"
+                      placeholder="+234 7090 123 4567"
                       {...register('phone', {
                         required: 'Phone number is required',
                         validate: (value) => {
@@ -168,7 +182,7 @@ const EventandCohortRegisteration = () => {
                           ? 'border-red-500 focus:ring-red-500'
                           : 'border-gray-300 focus:ring-brand-gold'
                       } focus:outline-none focus:ring-2`}
-                      
+
                     />
                     {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>}
                   </div>
@@ -240,7 +254,7 @@ const EventandCohortRegisteration = () => {
                   <img 
                     src={Postal} 
                     alt="Event and Cohort" 
-                    className="w-full h-auto object-cover rounded-xl"
+                    className="w-full hidden md:block h-auto object-cover rounded-xl"
                   />
                 </motion.div>
 
