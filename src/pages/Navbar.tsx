@@ -51,7 +51,7 @@ export const Navbar: React.FC = () => {
         {/* CTA */}
         <button 
           onClick={() => handleNavigation('eventandcohortregisteration')}
-          className="btn-gold-outline"
+          className="btn-gold-outline ms-3"
         >
           Join the Movement
         </button>

@@ -63,7 +63,7 @@ const EventandCohortRegisteration = () => {
     <div className="min-h-screen bg-gradient-to-b from-brand-alabaster to-white">
       {/* Header Section */}
       <motion.section
-        className="relative py-16 md:py-24 px-6 bg-brand-alabaster text-brand-navy overflow-hidden"
+        className="relative py-16 md:py-24  px-0 sm:px-6 bg-brand-alabaster text-brand-navy overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -85,7 +85,7 @@ const EventandCohortRegisteration = () => {
       </motion.section>
 
       {/* Main Content */}
-      <section className="py-16 md:py-24 px-6">
+      <section className="py-16 md:py-24 px-0 sm:px-6">
         <div className="max-w-5xl mx-auto">
           {!isRegistered ? (
             <motion.div
