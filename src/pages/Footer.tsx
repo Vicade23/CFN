@@ -2,6 +2,7 @@ import React from 'react';
 import { Instagram, Youtube, Linkedin, Mail, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { NAV_LINKS } from '../model/types';
+import Logo from '../assets/cfn-logo.png';
 
 const PAGE_TO_PATH: Record<string, string> = {
   'home': '/',
@@ -27,10 +28,7 @@ export const Footer: React.FC = () => {
         {/* Brand Column */}
         <div className="col-span-1 md:col-span-1">
           <div className="flex items-center mb-6">
-            <div className="w-8 h-8 bg-brand-gold flex items-center justify-center mr-3">
-              <span className="text-brand-navy font-serif font-bold text-lg">C</span>
-            </div>
-            <span className="font-serif font-bold text-xl tracking-tight">CFN</span>
+            <img src={Logo} className='w-[120px] h-[50px]' alt="Logo" />
           </div>
           <p className="text-sm text-brand-alabaster/60 leading-relaxed mb-8 font-sans">
             Raising a generation of purposeful, capable, and globally relevant Africans. 

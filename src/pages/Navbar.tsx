@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { NAV_LINKS } from '../model/types';
+import Logo from '../assets/cfn-logo.png';
 
 const PAGE_TO_PATH: Record<string, string> = {
   'home': '/',
@@ -29,13 +30,7 @@ export const Navbar: React.FC = () => {
           className="flex items-center cursor-pointer group"
           onClick={() => handleNavigation('home')}
         >
-          <div className="w-10 h-10 bg-brand-navy flex items-center justify-center mr-3 group-hover:bg-brand-gold transition-colors duration-500">
-            <span className="text-brand-gold group-hover:text-brand-navy font-serif font-bold text-xl transition-colors duration-500">C</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-serif font-bold text-lg tracking-tight leading-none">CFN</span>
-            <span className="text-[10px] uppercase tracking-[0.2em] font-display font-semibold text-brand-gold">Capacity for Nations</span>
-          </div>
+          <img src={Logo} className='w-[120px] h-[50px]' alt="Logo" />
         </div>
 
         {/* Links */}
