@@ -171,7 +171,7 @@ const EventandCohortRegisteration = () => {
                           if (digitsOnly.length < 10) {
                             return 'Phone number must contain at least 10 digits';
                           }
-                          if (!/^[\d\s\-\+\(\)]+$/.test(value)) {
+                          if (!/^[\d\s\-()]+$/.test(value)) {
                             return 'Please enter a valid phone number';
                           }
                           return true;
