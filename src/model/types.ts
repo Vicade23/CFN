@@ -3,11 +3,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import Image1 from "../assets/f4cf9ec7-6904-4128-9dba-9c0b9f15ee42.jpg"
-import Image2 from "../assets/IMG_9446.jpg"
-import Image3 from "../assets/Screenshot 2026-02-22 231610.png"
-import Image4 from "../assets/Screenshot 2026-02-22 231904.png"
-import Image5 from "../assets/Screenshot 2026-02-22 232217.png"
+import Image1 from "../assets/WhatsApp Image 2026-02-27 at 12.34.44 PM.jpeg"
+import Image2 from "../assets/WhatsApp Image 2026-02-27 at 12.34.46 PM (3).jpeg"
+import Image3 from "../assets/WhatsApp Image 2026-02-27 at 12.34.47 PM.jpeg"
+import Image4 from "../assets/WhatsApp Image 2026-02-27 at 12.34.48 PM (1).jpeg"
+import Image5 from "../assets/WhatsApp Image 2026-02-27 at 12.34.45 PM (1).jpeg"
+
+
+import Image6 from "../assets/WhatsApp Image 2026-02-27 at 12.34.40 PM.jpeg"
+import Image7 from "../assets/WhatsApp Image 2026-02-27 at 12.34.43 PM (3).jpeg"
+import Image8 from "../assets/WhatsApp Image 2026-02-27 at 12.34.47 PM (1).jpeg"
+import Image9 from "../assets/WhatsApp Image 2026-02-27 at 12.34.46 PM.jpeg"
+import Image10 from "../assets/WhatsApp Image 2026-02-27 at 12.34.44 PM (2).jpeg"
+import Image11 from "../assets/WhatsApp Image 2026-02-27 at 12.34.44 PM (3).jpeg"
 
 export type Page = 'home' | 'about' | 'programs' | 'hub' | 'media' | 'partner' | 'eventandcohortregisteration';
 
@@ -47,10 +55,25 @@ export interface Program {
   image: string;
 }
 
+
+export interface Programmain {
+  image: string;
+}
+
 export const PROGRAMS: Program[] = [
   { pillar: 'Pillar 1', image: Image1, title: 'Purpose Conferences', description: 'High-impact gatherings focused on mindset shifts and intentional living.' },
   { pillar: 'Pillar 2', image: Image2, title: 'Campus Tours', description: 'Direct engagement with secondary and tertiary institutions to instill leadership early.' },
   { pillar: 'Pillar 3', image: Image3, title: 'Training & Mentorship', description: 'Structured bootcamps and cohorts focused on professional alignment and social capital.' },
   { pillar: 'Pillar 4', image: Image4, title: 'Publications & Media', description: 'Disseminating thought leadership through books, podcasts, and YouTube.' },
   { pillar: 'Pillar 5', image: Image5, title: 'Strategic Partnerships', description: 'Collaborating with NGOs, the private sector, and global foundations.' },
+];
+
+
+export const PROGRAMSMAIN: Programmain[] = [
+  { image: Image6, },
+  { image: Image7, },
+  { image: Image8, },
+  { image: Image9, },
+  { image: Image10, },
+  { image: Image11, },
 ];
